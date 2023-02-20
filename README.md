@@ -73,29 +73,21 @@ A) Digital Down conversion:
                      IF3 =  600 kHz                               IF4 = 800 kHz
                      IF5 =  1000 kHz                              IF6 = 1200 kHz
                      IF7 =  1400 kHz                              IF8 = 1600 kHz
-            
-            
-B) Upsampling:
-
-            1) The sample rate of the generated NB-IoT uplink complex baseband waveform needs to be increased in order to allow for digital upconversion.
-            2) upsample() function is used to increase the sample rate. 
-            3) upsample() function's inputs are: the waveform, a factor which will by the original sample rate to generate the upsampled rate.
-            4) upsample() funciton's output is: the upsampled waveform with the new sample rate.
-            5) Since the transmitted signal will contain 8 NB-IoT uplink complex baseband waveform.
-            6) Each signal has a bandwidth of 180 kHz. (0 Hz : 180 kHz)
-            7) The spacing between each two signals in frequency domain is 20 kHz (suh the space between two signals' center is 200 kHz).
-            8) The first signal will be centered at IF =200 kHz, while the last one will be centered at IF = 1600 kHz.
-            9) Based on the above calculations, and given the frequency margin of 310 kHz ,the new sample rate will be chosen such that: fs/2 = 2 MHz
-  
+            5) This step is repeated for the 6 received signals that were obtained from the 6 iterations in Transmitter Stage.
+            6) Each Received signal will be down converted using the following Equation
 ![image](https://user-images.githubusercontent.com/58476343/220175013-6118c267-898e-4885-a632-0ebc739335ec.png)
 
-C) FIR Filter:
+B) FIR Filter:
 
-            1) The waveform has frequency components from -800 kHz to 800 kHz. 
-            2) The important frequencies exist in the range from -90 kHz to 90 kHz.
-            3) FIR Filter is needed to pass the important frequencies, while attenuating the unwanted frequencies.
-            4) Here are the specifications and constraints of the digital FIR filter to be designed:
-                   1) Passband ripples: peak-to-peak passband ripple = 2 dB  
-                   2) Stopband attenuation: -60 dB
-                   3) Transition region width: 
-                   4) Max Number of filter taps: 512 taps  
+            1) The Digital Down Converted Signals need to be passed through a FIR Filter to pass the desired frequencies and attenuates the stopband frequencies.
+            2) Important frequencies exist in the range from -90 kHz to 90 kHz.
+            3) This step will be repeated 6 times for each iteration and using the 6 designed filters.
+
+C) Downsampling:
+
+            1) Each Constructed Signal from the 8 Signals needs to be down sampled.  
+            2) The current sampling rate is 5760 kHz.
+            3) But, now we are having frequency components from -90 kHz to 90 kHZ.
+            4) So, the new sample rate will be chosen such that: fs/2 = 100 kHz
+            5) This step will be repeated 6 times for the 6 iterations.
+       
