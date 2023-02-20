@@ -30,7 +30,8 @@ B) Upsampling:
             6) Each signal has a bandwidth of 180 kHz. (0 Hz : 180 kHz)
             7) The spacing between each two signals in frequency domain is 20 kHz (suh the space between two signals' center is 200 kHz).
             8) According to the IF frequencies mensioned above, the first signal will be centered at IF =200 kHz, while the last one will be centered at IF = 1600 kHz, as the bandwith for each signal is 180 kHz, then the required (fs/2) should be at least 1690 kHz. 
-            9) Based on the above calculations, and given the frequency margin of 310 kHz ,the new sample rate will be chosen such that: <span style="vertical-align: -15"><img src="file:///C:\Users\Ibrahim\AppData\Local\Temp\ConnectorClipboard3783968150583223415/image16769157929780.png" width="73.5" height="34"></span>![image](https://user-images.githubusercontent.com/58476343/220174065-099db1a2-c03e-4c7b-9906-73e63988603b.png)
+            9) Based on the above calculations, and given the frequency margin of 310 kHz ,the new sample rate will be chosen such that: 
+ <span style="vertical-align: -15"><img src="file:///C:\Users\Ibrahim\AppData\Local\Temp\ConnectorClipboard3783968150583223415/image16769157929780.png" width="73.5" height="34"></span>![image](https://user-images.githubusercontent.com/58476343/220174065-099db1a2-c03e-4c7b-9906-73e63988603b.png)
 
                                                                            
 
