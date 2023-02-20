@@ -52,16 +52,6 @@ C) FIR Filter:
 
 
 
-Digital Down conversion:
-
-
-
-
-
-We repeated this step for the 6 received signals that were obtained from the 6 iterations in Transmitter Stage.
-Each Received signal will be down converted using the following Equation:
-
-
 ## Receiver:
 A) Digital Down conversion:
 
